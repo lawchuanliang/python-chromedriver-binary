@@ -40,26 +40,26 @@ class DownloadChromedriver(build_py):
             print(chromedriver_dir)
             print(chromedriver_bin)
             print( os.listdir(chromedriver_dir))
-            chromedriver_filename = os.path.join(chromedriver_dir, chromedriver_bin)
-            if not os.path.isfile(chromedriver_filename) or not check_version(chromedriver_filename, chromedriver_version):
-                print("\nDownloading Chromedriver...\n")
-                if not os.path.isdir(chromedriver_dir):
-                    os.mkdir(chromedriver_dir)
-                url = get_chromedriver_url(version=chromedriver_version)
-                try:
-                    response = urlopen(url, context=ssl_context)
-                    if response.getcode() != 200:
-                        raise URLError('Not Found')
-                except URLError:
-                    raise RuntimeError('Failed to download chromedriver archive: {}'.format(url))
-                archive = BytesIO(response.read())
-                print(response.read())
-                with zipfile.ZipFile(archive) as zip_file:
-                    zip_file.extract("chromedriver_linux64", chromedriver_dir)
-            else:
-                print("\nChromedriver already installed at {}...\n".format(chromedriver_filename))
-            if not os.access(chromedriver_filename, os.X_OK):
-                os.chmod(chromedriver_filename, 0o744)
+            # chromedriver_filename = os.path.join(chromedriver_dir, chromedriver_bin)
+            # if not os.path.isfile(chromedriver_filename) or not check_version(chromedriver_filename, chromedriver_version):
+            #     print("\nDownloading Chromedriver...\n")
+            #     if not os.path.isdir(chromedriver_dir):
+            #         os.mkdir(chromedriver_dir)
+            #     url = get_chromedriver_url(version=chromedriver_version)
+            #     try:
+            #         response = urlopen(url, context=ssl_context)
+            #         if response.getcode() != 200:
+            #             raise URLError('Not Found')
+            #     except URLError:
+            #         raise RuntimeError('Failed to download chromedriver archive: {}'.format(url))
+            #     archive = BytesIO(response.read())
+            #     print(response.read())
+            #     with zipfile.ZipFile(archive) as zip_file:
+            #         zip_file.extract("chromedriver_linux64", chromedriver_dir)
+            # else:
+            #     print("\nChromedriver already installed at {}...\n".format(chromedriver_filename))
+            # if not os.access(chromedriver_filename, os.X_OK):
+            #     os.chmod(chromedriver_filename, 0o744)
         build_py.run(self)
 
 
