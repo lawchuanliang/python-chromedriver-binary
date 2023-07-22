@@ -64,7 +64,7 @@ def get_chromedriver_url(version):
         architecture = '32'
     else:
         raise RuntimeError('Could not determine chromedriver download URL for this platform.')
-    return base_url + version + '/' +  _platform + architecture + '/chromedriver_' + _platform + architecture + '.zip'
+    return base_url + version + '/' +  _platform + architecture + '/chromedriver-' + _platform + architecture + '.zip'
 
 
 def find_binary_in_path(filename):
