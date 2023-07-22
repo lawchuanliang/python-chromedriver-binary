@@ -31,15 +31,14 @@ class DownloadChromedriver(build_py):
         chromedriver_version='115.0.5790.98'
         chromedriver_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'chromedriver_binary')
         chromedriver_filename = find_binary_in_path(get_chromedriver_filename())
+        print(chromedriver_dir)
+        print(chromedriver_filename)
         if chromedriver_filename and check_version(chromedriver_filename, chromedriver_version):
             print("\nChromedriver already installed at {}...\n".format(chromedriver_filename))
             new_filename = os.path.join(chromedriver_dir, get_chromedriver_filename())
             self.copy_file(chromedriver_filename, new_filename)
-        else:
-            chromedriver_bin = get_chromedriver_filename()
-            print(chromedriver_dir)
-            print(chromedriver_bin)
-            print( os.listdir(chromedriver_dir))
+        # else:
+            # chromedriver_bin = get_chromedriver_filename()
             # chromedriver_filename = os.path.join(chromedriver_dir, chromedriver_bin)
             # if not os.path.isfile(chromedriver_filename) or not check_version(chromedriver_filename, chromedriver_version):
             #     print("\nDownloading Chromedriver...\n")
