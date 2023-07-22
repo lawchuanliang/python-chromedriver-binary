@@ -46,7 +46,6 @@ class DownloadChromedriver(build_py):
                 if not os.path.isdir(chromedriver_dir):
                     os.mkdir(chromedriver_dir)
                 url = get_chromedriver_url(version=chromedriver_version)
-                print("######################")
                 try:
                     response = urlopen(url, context=ssl_context)
                     if response.getcode() != 200:
@@ -58,6 +57,7 @@ class DownloadChromedriver(build_py):
                     zip_file.extract(chromedriver_bin, chromedriver_dir)
             else:
                 print("\nChromedriver already installed at {}...\n".format(chromedriver_filename))
+            print("######################")
             if not os.access(chromedriver_filename, os.X_OK):
                 os.chmod(chromedriver_filename, 0o744)
         build_py.run(self)
