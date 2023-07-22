@@ -53,11 +53,11 @@ class DownloadChromedriver(build_py):
                 except URLError:
                     raise RuntimeError('Failed to download chromedriver archive: {}'.format(url))
                 archive = BytesIO(response.read())
+                print("######################")s
                 with zipfile.ZipFile(archive) as zip_file:
                     zip_file.extract(chromedriver_bin, chromedriver_dir)
             else:
                 print("\nChromedriver already installed at {}...\n".format(chromedriver_filename))
-            print("######################")
             if not os.access(chromedriver_filename, os.X_OK):
                 os.chmod(chromedriver_filename, 0o744)
         build_py.run(self)
