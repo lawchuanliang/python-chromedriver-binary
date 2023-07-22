@@ -47,7 +47,7 @@ def get_chromedriver_url(version):
     :param version: chromedriver version string
     :return: Download URL for chromedriver
     """
-    base_url = 'https://chromedriver.storage.googleapis.com/'
+    base_url = 'https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/'
     if sys.platform.startswith('linux') and sys.maxsize > 2 ** 32:
         _platform = 'linux'
         architecture = '64'
@@ -84,7 +84,7 @@ def find_binary_in_path(filename):
 
 
 def get_latest_release_for_version(version=None):
-    """
+    """∂
     Searches for the latest release (complete version string) for a given major `version`. If `version` is None
     the latest release is returned.
     :param version: Major version number or None
