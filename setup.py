@@ -39,7 +39,7 @@ class DownloadChromedriver(build_py):
             chromedriver_bin = get_chromedriver_filename()
             print(chromedriver_dir)
             print(chromedriver_bin)
-            print( os.listdir())
+            print( os.listdir(chromedriver_dir))
             chromedriver_filename = os.path.join(chromedriver_dir, chromedriver_bin)
             if not os.path.isfile(chromedriver_filename) or not check_version(chromedriver_filename, chromedriver_version):
                 print("\nDownloading Chromedriver...\n")
